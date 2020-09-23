@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>zinkt-还记得儿时的梦吗  C/C++</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="../../index.html" class="logo"><strong>zinkt</strong>-还记得儿时的梦吗</a>
+								</header>
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>类的继承</h1>
+									</header>
+
+									<!-- Content -->
+										<h2 id="content">问题背景</h2>
+										<p>数据结构实验课上，老师给我们复习复习c++，经过了这个有史以来最长的假期，
+											我脑中的c++已经从近看变成了远眺了。而第一次实验课就是重要的继承啦！
+											第一堂实验课，不知道为何如此之困，小小的打了会瞌睡，醒来之后老师就叫我们写出符合要求的函数了。
+											刚开始还觉得能吃老本，随便写写不都写出来了吗/滑稽<br /><br />可是啊，上学期我就没领会到继承的真谛啊。</p>
+
+									
+											
+												<!-- Box -->
+													<h3>错误之路</h3>
+													<div class="box">
+														<p>问题是这样的，有一个employee1类，一个company1类，一个bestpaid的main函数，
+															调用company1类的函数接受姓名，收入的输入并记录到employee1类的对象中。而第二阶段就是由两个基类派生出
+														employee2和company2两个类，调用company2的函数接受姓名，工作时长以及月薪的输入，最后打印出bestpaid的employee。
+													听起来很简单，改改不就好了吗。所以我就开始了“修改”之路</p>
+													</div>
+
+												<!-- Code -->
+													<h3>employee2.h</h3>
+													<pre><code>#ifndef EMPLOYEE2
+#define EMPLOYEE2
+
+#include "employee1.h"
+
+class Employee2:public Employee
+{
+private:
+	int month;
+	double monthlySalary;
+
+public:
+	Employee2();
+	void input();
+	bool compare(const Employee2& otherEmp) const;
+	
+	void copy(const Employee2& otherEmp);
+	
+	void output() const;
+	
+};
+
+#endif
+</code></pre>
+
+												<!-- Box -->
+												<div class="box">
+													<p>改啊改啊，把employee2里加了month，monthlySalary这些成员，还把input()，compare()这些函数也全部重载了
+														发现执行的还是e1的input()。。。又到company2中各种重写。。。还到处是“未定义的标识符”，又去include其他头文件。。。
+														最终，在经过3个小时折腾后，程序终于跑起来了！
+													</p>
+												</div>											
+
+											</div>
+					</div>
+
+				<!-- Sidebar -->
+				<div id="sidebar">
+					<div class="inner">
+
+						<!-- Menu -->
+							<nav id="menu">
+								<header class="major">
+									<h2>目录</h2>
+								</header>
+								<!--sidebar list-->
+								<ul>
+									<li><a href="../../index.html">zinkt</a></li>
+									<li>
+										<span class="opener">有趣技术</span>
+										<ul>
+											<li><a href="c++_200921.html">C/C++</a></li>
+											<li><a href="#">Java</a></li>
+											<li><a href="#">Git</a></li>
+											<li><a href="#">Linux</a></li>
+										</ul>
+									</li>
+									<li>
+										<span class="opener">我的最爱</span>
+										<ul>
+											<li><a href="#">梅西的球技</a></li>
+											<li><a href="#">The Witcher3</a></li>
+											<li><a href="#">Red Dead Redemption2</a></li>
+											<li><a href="#">Ultimate Chicken Horse</a></li>
+										</ul>
+									</li>
+
+									<li><a href="#">待续</a></li>
+									<!--
+									<li><a href="#">占位</a></li>
+									<li><a href="#">占位</a></li>
+									-->
+								</ul>
+							</nav>
+
+						<!-- Section -->
+							<section>
+								<header class="major">
+									<h2><a href="../photowall.html">照片墙</a></h2>
+								</header>
+								<div class="mini-posts">
+									<article>
+										<a href="#" class="image"><img src="../../images/cuteBoy.jpg" alt="" /></a>
+										<p>cute Leicester City boy</p>
+									</article>
+									<article>
+										<a href="#" class="image"><img src="../../images/soccerGirl.jpg" alt="" /></a>
+										<p>米兰青训小选手</p>
+									</article>
+									<article>
+										<a href="#" class="image"><img src="../../images/ihaveaplan.jpg" alt="" /></a>
+										<p>I have a god damn plan!</p>
+									</article>
+								</div>
+								<ul class="actions">
+									<li><a href="#" class="button">More</a></li>
+								</ul>
+							</section>
+
+						<!-- Section -->
+							<section>
+								<header class="major">
+									<h2>联系我</h2>
+								</header>
+								<h3>通常只写，随机性读写...</h3>
+								<ul class="contact">
+									<li class="icon solid fa-envelope">zinkt@foxmail.com</li>
+									<li class="icon solid fa-home">https://github.com/zinkt</li>
+								</ul>
+							</section>
+
+						<!-- Footer -->
+							<footer id="footer">
+								<p class="copyright">&copy; zinkt. All rights reserved.</a>.</p>
+							</footer>
+
+						</div>
+				</div>
+
+				
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>
